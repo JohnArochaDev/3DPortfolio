@@ -1,4 +1,5 @@
-import { OrbitControls ,useGLTF, useTexture } from "@react-three/drei"
+import { Center, OrbitControls ,useGLTF, useTexture } from "@react-three/drei"
+import { Group } from "three/examples/jsm/libs/tween.module.js"
 
 import CrtComputer from "./CrtComputer"
 import DeskClutter from "./DeskClutter"
@@ -56,45 +57,50 @@ export default function App() {
 
     const keyBoard = useGLTF('./officeScene/keyboardUV.glb')
     console.log(keyBoard)
-    
-    
+
+    const position = [0, 0, 0]
 
     return (
         <>
             <OrbitControls makeDefault />
 
             <color args={ ['black'] } attach="background" />
-
-            <CrtComputer
-             nodes={nodes}
-             texture={textureBake1}
-             screen={screen}
-            />
-            <DeskClutter
-             nodes={nodes}
-             texture={textureBake2}
-            />
-            <ComputerHardware 
-            nodes={nodes}
-            texture={textureBake3}
-            />
-            <MiscItems 
-            nodes={nodes}
-            keyboard={keyBoard}
-            stickyNote1={stickyNote1}
-            stickyNote2={stickyNote2}
-            stickyNote3={stickyNote3}
-            textureBake4={textureBake4}
-            coffeeMugBake={coffeeMugBake}
-            deskBake={deskBake}
-            mouseBake={mouseBake}
-            posterBake={posterBake}
-            wallBake={wallBake}
-            stickyNoteBake={stickyNoteBake}
-            stickyNoteBake2={stickyNoteBake2}
-            stickyNoteBake3={stickyNoteBake3}
-            keyboardTexture={keyboardTexture}
-            />
+            <Center>
+                <CrtComputer
+                nodes={nodes}
+                texture={textureBake1}
+                screen={screen}
+                position={position}
+                />
+                <DeskClutter
+                nodes={nodes}
+                texture={textureBake2}
+                position={position}
+                />
+                <ComputerHardware 
+                nodes={nodes}
+                texture={textureBake3}
+                position={position}
+                />
+                <MiscItems 
+                nodes={nodes}
+                keyboard={keyBoard}
+                stickyNote1={stickyNote1}
+                stickyNote2={stickyNote2}
+                stickyNote3={stickyNote3}
+                textureBake4={textureBake4}
+                coffeeMugBake={coffeeMugBake}
+                deskBake={deskBake}
+                mouseBake={mouseBake}
+                posterBake={posterBake}
+                wallBake={wallBake}
+                stickyNoteBake={stickyNoteBake}
+                stickyNoteBake2={stickyNoteBake2}
+                stickyNoteBake3={stickyNoteBake3}
+                keyboardTexture={keyboardTexture}
+                position={position}
+                />
+            </Center>
         </>
     )
 }

@@ -1,19 +1,21 @@
-export default function CrtComputer({ nodes, texture, screen }) {
+import { Center } from "@react-three/drei"
+
+export default function CrtComputer({ position, nodes, texture, screen }) {
 
     return (<>
-            <mesh geometry={nodes.crtMonitor.geometry} >
+            <mesh geometry={nodes.crtMonitor.geometry} position={position} >
                 <meshBasicMaterial map={texture} />
             </mesh>
-            <mesh geometry={nodes.crtStand.geometry} >
+            <mesh geometry={nodes.crtStand.geometry} position={position} >
                 <meshBasicMaterial map={texture} />
             </mesh>
-            <mesh geometry={nodes.crtButtonPanel.geometry} >
+            <mesh geometry={nodes.crtButtonPanel.geometry} position={position} >
                 <meshBasicMaterial map={texture} />
             </mesh>
-            <mesh geometry={nodes.desktop.geometry} >
+            <mesh geometry={nodes.desktop.geometry} position={position} >
                 <meshBasicMaterial map={texture} />
             </mesh>
-            <mesh geometry={screen.nodes.crtScreen.geometry} >
+            <mesh geometry={screen.nodes.crtScreen.geometry} position={position} >
                 <meshBasicMaterial map={texture} />
             </mesh>
         </>
