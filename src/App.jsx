@@ -58,16 +58,11 @@ export default function App() {
     const keyBoard = useGLTF('./officeScene/keyboardUV.glb')
     console.log(keyBoard)
 
-    const position = [0, 1, 0]
-    
-    const cameraPosition = [0, 0, 0.5]; // Adjust as needed
-    const cameraRef = useRef();
+    const position = [0, 0, 0]
+
 
     return (
-        <>
-
-            <perspectiveCamera position={cameraPosition} />
-            
+        <> 
             <OrbitControls 
             target={[nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]}
             minDistance={-5}
