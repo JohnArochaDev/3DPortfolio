@@ -63,7 +63,7 @@ export default function App() {
     const position = [0, 0, 0]
 
     const cameraPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]
-    const cameraCRTPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.61, nodes.crtScreen.position.z - 2.66]
+    const cameraCRTPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.61, nodes.crtScreen.position.z - 2.77]
 
     const [clicked, setClicked] = useState(false)
 
