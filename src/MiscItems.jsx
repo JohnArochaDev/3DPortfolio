@@ -1,4 +1,4 @@
-export default function MiscItems({ nodes, textureBake4, coffeeMugBake, deskBake, mouseBake, posterBake, wallBake, stickyNoteBake, stickyNoteBake2, stickyNoteBake3, stickyNote1, stickyNote2, stickyNote3}) {
+export default function MiscItems({ nodes, textureBake4, coffeeMugBake, deskBake, mouseBake, posterBake, wallBake, stickyNoteBake, stickyNoteBake2, stickyNoteBake3, stickyNote1, stickyNote2, stickyNote3, screen}) {
 
     return (<>
             <mesh geometry={nodes.Bulletin_Board001.geometry} >

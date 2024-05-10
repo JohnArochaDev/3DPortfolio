@@ -33,12 +33,12 @@ export default function App() {
     stickyNoteBake3.flipY = false
 
     const { nodes } = useGLTF('./officeScene/retroDesk.glb')
-    console.log(nodes)
     const stickyNotes = useGLTF('./officeScene/stickyNotes.glb')
     const stickyNote1 = stickyNotes.nodes.stickyNote1
-    console.log('stickyNote1: \n',stickyNote1)
     const stickyNote2 = stickyNotes.nodes.stickyNote2
     const stickyNote3 = stickyNotes.nodes.stickyNote3
+    const screen = useGLTF('./officeScene/screen.glb')
+    console.log(screen)
     
 
     return (
@@ -50,6 +50,7 @@ export default function App() {
             <CrtComputer
              nodes={nodes}
              texture={textureBake1}
+             screen={screen}
             />
             <DeskClutter
              nodes={nodes}
