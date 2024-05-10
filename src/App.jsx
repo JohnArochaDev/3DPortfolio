@@ -70,16 +70,16 @@ export default function App() {
     return (
         <> 
             <OrbitControls 
-            // target={[nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]}
-            // minDistance={-5}
-            // maxDistance={.001}
-            // minPolarAngle={(Math.PI / 2) + -.2}
-            // maxPolarAngle={(Math.PI / 2) - .01}
-            // minAzimuthAngle={-Math.PI / 27}
-            // maxAzimuthAngle={Math.PI / 27}
-            // enablePan={false}
-            // rotateSpeed={.2}
-            // enableDamping 
+            target={[nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]}
+            minDistance={-5}
+            maxDistance={.001}
+            minPolarAngle={(Math.PI / 2) + -.135}
+            maxPolarAngle={(Math.PI / 2) - .01}
+            minAzimuthAngle={-Math.PI / 40}
+            maxAzimuthAngle={Math.PI / 40}
+            enablePan={false}
+            rotateSpeed={.2}
+            enableDamping 
             makeDefault
             />
 
