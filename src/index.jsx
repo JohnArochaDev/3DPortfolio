@@ -5,7 +5,12 @@ import { Canvas } from '@react-three/fiber'
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
-    <Canvas>
-        Soon to be a badass R3F application
-    </Canvas>
+    <>
+        <Canvas>
+            <mesh>
+                <torusKnotGeometry />
+                <meshNormalMaterial />
+            </mesh>
+        </Canvas>
+    </>
 )
