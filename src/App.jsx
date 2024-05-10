@@ -69,13 +69,13 @@ export default function App() {
             <perspectiveCamera position={cameraPosition} />
             
             <OrbitControls 
-            target={[nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2]}
+            target={[nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]}
             minDistance={-5}
             maxDistance={.001}
-            minPolarAngle={(Math.PI / 2) - .3}
-            maxPolarAngle={(Math.PI / 2) + .3}
-            minAzimuthAngle={-Math.PI / 7}
-            maxAzimuthAngle={Math.PI / 7}
+            minPolarAngle={(Math.PI / 2) + .05}
+            maxPolarAngle={(Math.PI / 2) + .15}
+            minAzimuthAngle={-Math.PI / 27}
+            maxAzimuthAngle={Math.PI / 27}
             enablePan={false}
             enableDamping 
             makeDefault
