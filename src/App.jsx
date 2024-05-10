@@ -3,6 +3,7 @@ import { OrbitControls ,useGLTF, useTexture } from "@react-three/drei"
 import CrtComputer from "./CrtComputer"
 import DeskClutter from "./DeskClutter"
 import ComputerHardware from "./ComputerHardware"
+import BulletinBoard from "./BulletinBoard"
 
 export default function App() {
 
@@ -12,6 +13,8 @@ export default function App() {
     textureBake2.flipY = false
     const textureBake3 = useTexture('/textures/textureBake3.jpg')
     textureBake3.flipY = false
+    const textureBake4 = useTexture('/textures/textureBake4.jpg')
+    textureBake4.flipY = false
 
     const { nodes } = useGLTF('./officeScene/retroDesk.glb')
     console.log(nodes)
@@ -33,6 +36,10 @@ export default function App() {
             <ComputerHardware 
             nodes={nodes}
             texture={textureBake3}
+            />
+            <BulletinBoard 
+            nodes={nodes}
+            texture={textureBake4}
             />
         </>
     )
