@@ -66,11 +66,13 @@ export default function App() {
 
     const position = [0, 0, 0]
 
+    const cameraPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]
+    const cameraCRTPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.61, nodes.crtScreen.position.z - 2.66]
 
     return (
         <> 
             <OrbitControls 
-            target={[nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]}
+            target={cameraCRTPosition}
             minDistance={-5}
             maxDistance={.001}
             minPolarAngle={(Math.PI / 2) + -.135}
