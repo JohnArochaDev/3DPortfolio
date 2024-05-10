@@ -1,4 +1,4 @@
-export default function MiscItems({ nodes, textureBake4, coffeeMugBake, deskBake, mouseBake, posterBake, wallBake, stickyNoteBake, stickyNoteBake2, stickyNoteBake3, stickyNote1, stickyNote2, stickyNote3, screen}) {
+export default function MiscItems({ nodes, textureBake4, coffeeMugBake, deskBake, mouseBake, posterBake, wallBake, stickyNoteBake, stickyNoteBake2, stickyNoteBake3, stickyNote1, stickyNote2, stickyNote3, screen, keyboard, keyboardTexture}) {
 
     return (<>
             <mesh geometry={nodes.Bulletin_Board001.geometry} >
@@ -27,6 +27,9 @@ export default function MiscItems({ nodes, textureBake4, coffeeMugBake, deskBake
             </mesh>
             <mesh geometry={stickyNote3.geometry} >
                 <meshBasicMaterial map={stickyNoteBake3} />
+            </mesh>
+            <mesh geometry={keyboard.nodes.keyBoard001.geometry} >
+                <meshBasicMaterial map={keyboardTexture} />
             </mesh>
         </>
     )

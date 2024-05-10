@@ -10,9 +10,9 @@ export default function ComputerHardware({ nodes, texture }) {
             <mesh geometry={nodes.coaster.geometry} >
                 <meshBasicMaterial map={texture} />
             </mesh>
-            <mesh geometry={nodes.keyBoard.geometry} >
+            {/* <mesh geometry={nodes.keyBoard.geometry} >
                 <meshBasicMaterial map={texture} />
-            </mesh>
+            </mesh> */}
             <mesh geometry={nodes.lamp.geometry} >
                 <meshBasicMaterial map={texture} />
             </mesh>
