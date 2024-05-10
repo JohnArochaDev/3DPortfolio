@@ -9,3 +9,11 @@ body,
     height: 100%;
     overflow: hidden;
 }
+
+.terminalScreen iframe
+{
+    width: 1024px;
+    height: 820px;
+    border: none;
+    background: #000000;
+}

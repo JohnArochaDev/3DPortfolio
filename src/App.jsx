@@ -1,10 +1,12 @@
 import { useRef } from "react";
 import { Center, OrbitControls, useGLTF, useTexture } from "@react-three/drei"
+import * as THREE from "three"
 
 import CrtComputer from "./CrtComputer"
 import DeskClutter from "./DeskClutter"
 import ComputerHardware from "./ComputerHardware"
 import MiscItems from "./MiscItems"
+import Terminal from "./Terminal";
 
 export default function App() {
 
@@ -54,6 +56,10 @@ export default function App() {
     const stickyNote3 = stickyNotes.nodes.stickyNote3
 
     const screen = useGLTF('./officeScene/screen.glb')
+    console.log('screen',screen)
+
+    const screenPosition = new THREE.Vector3().copy(screen.nodes.crtScreen.position)
+    console.log('screenPosition',screenPosition)
 
     const keyBoard = useGLTF('./officeScene/keyboardUV.glb')
     console.log(keyBoard)
@@ -64,16 +70,16 @@ export default function App() {
     return (
         <> 
             <OrbitControls 
-            target={[nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]}
-            minDistance={-5}
-            maxDistance={.001}
-            minPolarAngle={(Math.PI / 2) + -.2}
-            maxPolarAngle={(Math.PI / 2) - .01}
-            minAzimuthAngle={-Math.PI / 27}
-            maxAzimuthAngle={Math.PI / 27}
-            enablePan={false}
-            rotateSpeed={.2}
-            enableDamping 
+            // target={[nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]}
+            // minDistance={-5}
+            // maxDistance={.001}
+            // minPolarAngle={(Math.PI / 2) + -.2}
+            // maxPolarAngle={(Math.PI / 2) - .01}
+            // minAzimuthAngle={-Math.PI / 27}
+            // maxAzimuthAngle={Math.PI / 27}
+            // enablePan={false}
+            // rotateSpeed={.2}
+            // enableDamping 
             makeDefault
             />
 
@@ -115,6 +121,9 @@ export default function App() {
                     position={position}
                     />
                 </Center>
+                <Terminal
+                screenPosition={screenPosition}
+                />
         </>
     )
 }
