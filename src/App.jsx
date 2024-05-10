@@ -65,7 +65,7 @@ export default function App() {
     const cameraPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]
     const cameraCRTPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.61, nodes.crtScreen.position.z - 2.66]
 
-    const [clicked, setClicked] = useState(true)
+    const [clicked, setClicked] = useState(false)
 
 
     return (
@@ -78,6 +78,8 @@ export default function App() {
                         texture={textureBake1}
                         screen={screen}
                         position={position}
+                        clicked={clicked}
+                        setClicked={setClicked}
                     />
                     <DeskClutter
                         nodes={nodes}
