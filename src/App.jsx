@@ -34,6 +34,12 @@ export default function App() {
 
     const { nodes } = useGLTF('./officeScene/retroDesk.glb')
     console.log(nodes)
+    const stickyNotes = useGLTF('./officeScene/stickyNotes.glb')
+    const stickyNote1 = stickyNotes.nodes.stickyNote1
+    console.log('stickyNote1: \n',stickyNote1)
+    const stickyNote2 = stickyNotes.nodes.stickyNote2
+    const stickyNote3 = stickyNotes.nodes.stickyNote3
+    
 
     return (
         <>
@@ -55,7 +61,18 @@ export default function App() {
             />
             <BulletinBoard 
             nodes={nodes}
+            stickyNote1={stickyNote1}
+            stickyNote2={stickyNote2}
+            stickyNote3={stickyNote3}
             textureBake4={textureBake4}
+            coffeeMugBake={coffeeMugBake}
+            deskBake={deskBake}
+            mouseBake={mouseBake}
+            posterBake={posterBake}
+            wallBake={wallBake}
+            stickyNoteBake={stickyNoteBake}
+            stickyNoteBake2={stickyNoteBake2}
+            stickyNoteBake3={stickyNoteBake3}
             />
         </>
     )
