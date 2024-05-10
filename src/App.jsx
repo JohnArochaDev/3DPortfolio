@@ -72,11 +72,12 @@ export default function App() {
             target={[nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]}
             minDistance={-5}
             maxDistance={.001}
-            minPolarAngle={(Math.PI / 2) + .05}
-            maxPolarAngle={(Math.PI / 2) + .15}
+            minPolarAngle={(Math.PI / 2) + -.2}
+            maxPolarAngle={(Math.PI / 2) - .01}
             minAzimuthAngle={-Math.PI / 27}
             maxAzimuthAngle={Math.PI / 27}
             enablePan={false}
+            rotateSpeed={.2}
             enableDamping 
             makeDefault
             />
