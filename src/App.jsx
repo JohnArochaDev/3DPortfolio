@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { useState } from "react"
 import * as THREE from "three"
 import { PerspectiveCamera } from "@react-three/drei"
+import { Selection, Select, EffectComposer, Outline } from '@react-three/postprocessing'
 
 import CrtComputer from "./CrtComputer"
 import DeskClutter from "./DeskClutter"
@@ -119,20 +120,31 @@ export default function App() {
 
     const [focus, setFocus] = useState(false)
 
+    ///////////////////////////////////////////////////////////
+
+    const [hover, setHover] = useState(null)
+
+
+    ///////////////////////////////////////////////////////////
+
 
     return (
         <> 
             <color args={ ['black'] } attach="background" />
 
                 <Center>
-                    <CrtComputer
-                        nodes={nodes}
-                        texture={textureBake1}
-                        screen={screen}
-                        position={position}
-                        clicked={focus}
-                        setClicked={setFocus}
-                    />
+                    <Selection>
+                        <CrtComputer
+                            nodes={nodes}
+                            texture={textureBake1}
+                            screen={screen}
+                            position={position}
+                            clicked={focus}
+                            setClicked={setFocus}
+                            hover={hover}
+                            setHover={setHover}
+                        />
+                    </Selection>
                     <DeskClutter
                         nodes={nodes}
                         texture={textureBake2}
