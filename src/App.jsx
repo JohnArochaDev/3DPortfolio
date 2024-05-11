@@ -104,10 +104,19 @@ export default function App() {
 
     useFrame((state, delta) =>
     {
+        if(focus) {
         cameraRef.current.position.x += (mouseX - cameraRef.current.position.x) * delta
         cameraRef.current.position.y += (-mouseY - cameraRef.current.position.y) * delta
-        cameraRef.current.lookAt(0, -1.3, -3)
+        cameraRef.current.lookAt(0, -1.3, -3.5)
+        } else {
+            // cameraRef.current.position.x += (mouseX - cameraRef.current.position.x) * delta
+            // cameraRef.current.position.y += (-mouseY - cameraRef.current.position.y) * delta
+            cameraRef.current.position.z = -1.9
+            cameraRef.current.lookAt(0, -1, -3.5)
+        }
     })
+
+    const [focus, setFocus] = useState(false)
 
     return (
         <> 
@@ -154,7 +163,8 @@ export default function App() {
                 <Terminal />
 
                 <PerspectiveCamera
-                fov={35}
+                fov={focus ? 15 : 35}
+                zoom={focus ? 2 : 1}
                 ref={cameraRef}
                 position={[0, -1, -1]} 
                 makeDefault 
