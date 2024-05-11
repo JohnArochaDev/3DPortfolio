@@ -72,18 +72,18 @@ export default function App() {
     document.addEventListener('mousemove', function(e) {
         const windowHalfX = window.innerWidth / 2
         const windowHalfY = window.innerHeight / 2
-        mouseX = (e.clientX - windowHalfX) / 100
-        mouseY = (e.clientY - windowHalfY) / 10
+        mouseX = ((e.clientX - windowHalfX) / 100) * .7
+        mouseY = ((e.clientY - windowHalfY) / 100) * .7
         if (mouseY > 1.2) {
             mouseY = 1.2
         } else if (mouseY < 0.7) {
             mouseY = 0.7
         }
 
-        if (mouseX > .1) {
-            mouseX = .1
-        } else if (mouseX < -.1) {  
-            mouseX = -.1
+        if (mouseX > .3) {
+            mouseX = .3
+        } else if (mouseX < -.3) {  
+            mouseX = -.3
         }
     })
 
