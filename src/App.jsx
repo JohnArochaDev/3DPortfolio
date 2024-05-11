@@ -117,7 +117,7 @@ export default function App() {
         }
     })
 
-    const [focus, setFocus] = useState(true)
+    const [focus, setFocus] = useState(false)
 
 
     return (
@@ -166,7 +166,7 @@ export default function App() {
 
                 <PerspectiveCamera
                 fov={focus ? 15 : 35}
-                zoom={focus ? 2 : 1}
+                zoom={!focus ? 1 : 2}
                 ref={cameraRef}
                 position={[0, -1, -1]} 
                 makeDefault 
