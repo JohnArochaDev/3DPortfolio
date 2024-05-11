@@ -3,6 +3,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { useRef } from "react"
 import { useState } from "react"
 import * as THREE from "three"
+import { PerspectiveCamera } from "@react-three/drei"
 
 import CrtComputer from "./CrtComputer"
 import DeskClutter from "./DeskClutter"
@@ -62,40 +63,36 @@ export default function App() {
 
     const position = [0, 0, 0]
 
-    const cameraPosition = [0.001, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]
-    console.log('end',cameraPosition)
-    const cameraCRTPosition = [0.001, nodes.crtScreen.position.y - 2.61, nodes.crtScreen.position.z - 2.77]
-    console.log('start',cameraCRTPosition)
-
-    const [clicked, setClicked] = useState(false)
-
-    const [target, setTarget] = useState(cameraPosition);
-
     const cameraRef = useRef()
 
-    let Y
-    let Z
+    let mouseX = 0
+    let mouseY = 0
 
-    const diffY = cameraCRTPosition[1] - target[1]
-    const diffZ = cameraCRTPosition[2] - target[2]
-
-    useFrame(() => {
-
-        if(clicked && target[1] < (cameraCRTPosition[1] - .001)) {
-            Y = target[1] + (diffY * .05)
-            Z = target[2] + (diffZ * .05)
-
-            setTarget([target[0], Y, Z ]);
-            if(target[1] >= cameraCRTPosition[1]){
-                return
-            }
-
-        } else if(!clicked && (target[1] + .001) > cameraPosition[1]) {
-            Y = target[1] - (diffY * .05)
-            Z = target[2] - (diffZ * .05)
-
-            setTarget([target[0], Y, Z ]);
+    document.addEventListener('mousemove', function(e) {
+        const windowHalfX = window.innerWidth / 2
+        const windowHalfY = window.innerHeight / 2
+        mouseX = (e.clientX - windowHalfX) / 100
+        console.log('X',mouseX)
+        mouseY = (e.clientY - windowHalfY) / 100
+        console.log('Y',mouseY)
+        if (mouseY > 1) {
+            mouseY = 1
+        } else if (mouseY < 0.7) {
+            mouseY = 0.7
         }
+
+        if (mouseX > 1) {
+            mouseX = 1
+        } else if (mouseX < -1) {  
+            mouseX = -1
+        }
+    })
+
+    useFrame((state, delta) =>
+    {
+        cameraRef.current.position.x += (mouseX - cameraRef.current.position.x) * .02
+        cameraRef.current.position.y += (-mouseY - cameraRef.current.position.y) * .02
+        cameraRef.current.lookAt(0, -1, -3)
     })
 
     return (
@@ -108,8 +105,8 @@ export default function App() {
                         texture={textureBake1}
                         screen={screen}
                         position={position}
-                        clicked={clicked}
-                        setClicked={setClicked}
+                        // clicked={clicked}
+                        // setClicked={setClicked}
                     />
                     <DeskClutter
                         nodes={nodes}
@@ -141,7 +138,14 @@ export default function App() {
                     />
                 </Center>
                 <Terminal />
-                <OrbitControls 
+
+                <PerspectiveCamera
+                ref={cameraRef}
+                position={[0, -1, -1]} 
+                makeDefault 
+                />
+
+                {/* <OrbitControls 
                     // target={clicked ? cameraPosition : cameraCRTPosition}
                     ref={cameraRef}
                     target={[target[0], target[1], target[2]]}
@@ -154,8 +158,7 @@ export default function App() {
                     enablePan={false}
                     rotateSpeed={.2}
                     enableDamping 
-                    makeDefault
-                    />
+                    /> */}
         </>
     )
 }
