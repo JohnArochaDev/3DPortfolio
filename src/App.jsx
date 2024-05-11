@@ -58,8 +58,10 @@ export default function App() {
     const stickyNote2 = stickyNotes.nodes.stickyNote2
     const stickyNote3 = stickyNotes.nodes.stickyNote3
     const screen = useGLTF('./officeScene/screen.glb')
-    const screenPosition = new THREE.Vector3().copy(screen.nodes.crtScreen.position)
     const keyBoard = useGLTF('./officeScene/keyboardUV.glb')
+
+    const cameraPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]
+    const cameraCRTPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.61, nodes.crtScreen.position.z - 2.77]
 
     const position = [0, 0, 0]
 
@@ -68,24 +70,37 @@ export default function App() {
     let mouseX = 0
     let mouseY = 1
 
+    let isDragging = false;
+
+    document.addEventListener('mousedown', function(e) {
+        isDragging = true
+    });
+
     
     document.addEventListener('mousemove', function(e) {
-        const windowHalfX = window.innerWidth / 2
-        const windowHalfY = window.innerHeight / 2
-        mouseX = ((e.clientX - windowHalfX) / 100) * .7
-        mouseY = ((e.clientY - windowHalfY) / 100) * .7
-        if (mouseY > 1.2) {
-            mouseY = 1.2
-        } else if (mouseY < 0.7) {
-            mouseY = 0.7
-        }
-
-        if (mouseX > .3) {
-            mouseX = .3
-        } else if (mouseX < -.3) {  
-            mouseX = -.3
+        if(isDragging)
+        {
+            const windowHalfX = window.innerWidth / 2
+            const windowHalfY = window.innerHeight / 2
+            mouseX = ((e.clientX - windowHalfX) / 100) * .7
+            mouseY = ((e.clientY - windowHalfY) / 100) * .7
+            if (mouseY > 1.2) {
+                mouseY = 1.2
+            } else if (mouseY < 0.7) {
+                mouseY = 0.7
+            }
+    
+            if (mouseX > .3) {
+                mouseX = .3
+            } else if (mouseX < -.3) {  
+                mouseX = -.3
+            }
         }
     })
+
+    document.addEventListener('mouseup', function(e) {
+        isDragging = false
+    });
 
     useFrame((state, delta) =>
     {
