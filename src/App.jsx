@@ -104,20 +104,21 @@ export default function App() {
 
     useFrame((state, delta) =>
     {
-        if(focus) {
+        if(!focus) {
         cameraRef.current.position.x += (mouseX - cameraRef.current.position.x) * delta
         cameraRef.current.position.y += (-mouseY - cameraRef.current.position.y) * delta
         cameraRef.current.position.z = -1
         cameraRef.current.lookAt(0, -1.3, -3.5)
         } else {
             cameraRef.current.position.x = 0
-            cameraRef.current.position.y = -1
-            cameraRef.current.position.z = -1.9
+            cameraRef.current.position.y = -1.25
+            cameraRef.current.position.z = 1
             cameraRef.current.lookAt(0, -1, -3.5)
         }
     })
 
-    const [focus, setFocus] = useState(false)
+    const [focus, setFocus] = useState(true)
+
 
     return (
         <> 
@@ -129,8 +130,8 @@ export default function App() {
                         texture={textureBake1}
                         screen={screen}
                         position={position}
-                        // clicked={clicked}
-                        // setClicked={setClicked}
+                        clicked={focus}
+                        setClicked={setFocus}
                     />
                     <DeskClutter
                         nodes={nodes}
