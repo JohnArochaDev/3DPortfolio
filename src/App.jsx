@@ -1,7 +1,7 @@
 import { Center, OrbitControls, useGLTF, useTexture} from "@react-three/drei"
 import { useFrame, useThree } from '@react-three/fiber'
-import { useState } from "react"
 import { useRef } from "react"
+import { useState } from "react"
 import * as THREE from "three"
 
 import CrtComputer from "./CrtComputer"
@@ -62,11 +62,41 @@ export default function App() {
 
     const position = [0, 0, 0]
 
-    const cameraPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]
-    const cameraCRTPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.61, nodes.crtScreen.position.z - 2.77]
+    const cameraPosition = [0.001, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]
+    console.log('end',cameraPosition)
+    const cameraCRTPosition = [0.001, nodes.crtScreen.position.y - 2.61, nodes.crtScreen.position.z - 2.77]
+    console.log('start',cameraCRTPosition)
 
     const [clicked, setClicked] = useState(false)
 
+    const [target, setTarget] = useState(cameraPosition);
+
+    const cameraRef = useRef()
+
+    let Y
+    let Z
+
+    const diffY = cameraCRTPosition[1] - target[1]
+    const diffZ = cameraCRTPosition[2] - target[2]
+
+    useFrame(() => {
+
+        if(clicked && target[1] < (cameraCRTPosition[1] - .001)) {
+            Y = target[1] + (diffY * .05)
+            Z = target[2] + (diffZ * .05)
+
+            setTarget([target[0], Y, Z ]);
+            if(target[1] >= cameraCRTPosition[1]){
+                return
+            }
+
+        } else if(!clicked && (target[1] + .001) > cameraPosition[1]) {
+            Y = target[1] - (diffY * .05)
+            Z = target[2] - (diffZ * .05)
+
+            setTarget([target[0], Y, Z ]);
+        }
+    })
 
     return (
         <> 
@@ -112,9 +142,11 @@ export default function App() {
                 </Center>
                 <Terminal />
                 <OrbitControls 
-                    target={clicked ? cameraPosition : cameraCRTPosition}
-                    minDistance={-5}
-                    maxDistance={.001}
+                    // target={clicked ? cameraPosition : cameraCRTPosition}
+                    ref={cameraRef}
+                    target={[target[0], target[1], target[2]]}
+                    // minDistance={-5}
+                    maxDistance={.1}
                     minPolarAngle={(Math.PI / 2) + -.135}
                     maxPolarAngle={(Math.PI / 2) - .01}
                     minAzimuthAngle={-Math.PI / 40}
