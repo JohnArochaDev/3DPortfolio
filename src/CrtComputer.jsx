@@ -30,7 +30,7 @@ export default function CrtComputer({ position, nodes, texture, screen, clicked,
     return (<>
             <Selection>
                 <EffectComposer multisampling={8} autoClear={false}>
-                    <Outline blur visibleEdgeColor="white" edgeStrength={100} width={1000} />
+                    <Outline blur visibleEdgeColor="#0D2527" edgeStrength={500} width={5000}  />
                 </EffectComposer>
                 <Box />
             </Selection>
