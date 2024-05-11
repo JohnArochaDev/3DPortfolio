@@ -66,33 +66,32 @@ export default function App() {
     const cameraRef = useRef()
 
     let mouseX = 0
-    let mouseY = 0
+    let mouseY = 1
 
+    
     document.addEventListener('mousemove', function(e) {
         const windowHalfX = window.innerWidth / 2
         const windowHalfY = window.innerHeight / 2
         mouseX = (e.clientX - windowHalfX) / 100
-        console.log('X',mouseX)
-        mouseY = (e.clientY - windowHalfY) / 100
-        console.log('Y',mouseY)
-        if (mouseY > 1) {
-            mouseY = 1
+        mouseY = (e.clientY - windowHalfY) / 10
+        if (mouseY > 1.2) {
+            mouseY = 1.2
         } else if (mouseY < 0.7) {
             mouseY = 0.7
         }
 
-        if (mouseX > 1) {
-            mouseX = 1
-        } else if (mouseX < -1) {  
-            mouseX = -1
+        if (mouseX > .1) {
+            mouseX = .1
+        } else if (mouseX < -.1) {  
+            mouseX = -.1
         }
     })
 
     useFrame((state, delta) =>
     {
-        cameraRef.current.position.x += (mouseX - cameraRef.current.position.x) * .02
-        cameraRef.current.position.y += (-mouseY - cameraRef.current.position.y) * .02
-        cameraRef.current.lookAt(0, -1, -3)
+        cameraRef.current.position.x += (mouseX - cameraRef.current.position.x) * delta
+        cameraRef.current.position.y += (-mouseY - cameraRef.current.position.y) * delta
+        cameraRef.current.lookAt(0, -1.3, -3)
     })
 
     return (
@@ -140,6 +139,7 @@ export default function App() {
                 <Terminal />
 
                 <PerspectiveCamera
+                fov={35}
                 ref={cameraRef}
                 position={[0, -1, -1]} 
                 makeDefault 
