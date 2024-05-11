@@ -1,7 +1,7 @@
 import { Selection, Select, EffectComposer, Outline } from '@react-three/postprocessing'
 
 
-export default function CrtComputer({ position, nodes, texture, screen, clicked, setClicked, hover, setHover }) {
+export default function CrtComputer({ position, nodes, texture, screen, clicked, setClicked, hover, setHover, stickyNote1, stickyNote2, stickyNote3, stickyNoteBake, stickyNoteBake2, stickyNoteBake3}) {
 
     function Box(props) {
         console.log(hover)
@@ -21,6 +21,15 @@ export default function CrtComputer({ position, nodes, texture, screen, clicked,
                 </mesh>
                 <mesh geometry={screen.nodes.crtScreen.geometry} position={position} onClick={() => {setClicked(!clicked)}} onPointerOver={() => setHover(true)} onPointerOut={() => setHover(false)} >
                     <meshBasicMaterial map={texture} />
+                </mesh>
+                <mesh geometry={stickyNote1.geometry} position={position} >
+                <meshBasicMaterial map={stickyNoteBake} />
+                </mesh>
+                <mesh geometry={stickyNote2.geometry} position={position} >
+                    <meshBasicMaterial map={stickyNoteBake2} />
+                </mesh>
+                <mesh geometry={stickyNote3.geometry} position={position} >
+                    <meshBasicMaterial map={stickyNoteBake3} />
                 </mesh>
             </Select>
         )

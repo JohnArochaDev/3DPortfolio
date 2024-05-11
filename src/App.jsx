@@ -136,6 +136,12 @@ export default function App() {
                     <Selection>
                         <CrtComputer
                             nodes={nodes}
+                            stickyNote1={stickyNote1}
+                            stickyNote2={stickyNote2}
+                            stickyNote3={stickyNote3}
+                            stickyNoteBake={stickyNoteBake}
+                            stickyNoteBake2={stickyNoteBake2}
+                            stickyNoteBake3={stickyNoteBake3}
                             texture={textureBake1}
                             screen={screen}
                             position={position}
