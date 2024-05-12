@@ -2,7 +2,6 @@ import { Center, OrbitControls, useGLTF, useTexture} from "@react-three/drei"
 import { useFrame, useThree } from '@react-three/fiber'
 import { useRef } from "react"
 import { useState } from "react"
-import * as THREE from "three"
 import { PerspectiveCamera } from "@react-three/drei"
 import { Selection, Select, EffectComposer, Outline } from '@react-three/postprocessing'
 
