@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import { Loader, useProgress } from '@react-three/drei'
 import { Suspense } from 'react'
 
-import App from './App'
+import App from './Components/App'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
@@ -18,12 +18,14 @@ function Index() {
     console.log('loaded',loaded)
     console.log('total',total)
 
+
+
     return (
         <>
             <Canvas gl={{ antialias: true }} >
-                {/* <Suspense fallback={<Loader />}> */}
+                <Suspense fallback={null}>
                     <App />
-                {/* </Suspense> */}
+                </Suspense>
             </Canvas>
         </>
     )
