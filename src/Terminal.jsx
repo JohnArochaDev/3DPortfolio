@@ -4,10 +4,11 @@ export default function Terminal() {
 
     return (
             <Html
-            transform
-            wrapperClass="terminalScreen"
-            distanceFactor={ .15 }
-            position={[0, -1, -2.465]}
+                occlude="blending"
+                transform
+                wrapperClass="terminalScreen"
+                distanceFactor={ .152 }
+                position={[0, -1, -2.465]}
             >
                 <iframe src="https://johnarocha.netlify.app/" />
             </Html>

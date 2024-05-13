@@ -1,11 +1,7 @@
-import { Center, OrbitControls, useGLTF, useTexture} from "@react-three/drei"
+import { PerspectiveCamera, Center, useProgress, useGLTF, useTexture, Loader} from "@react-three/drei"
 import { useFrame, useThree } from '@react-three/fiber'
-import { useRef } from "react"
-import { useState } from "react"
-import { PerspectiveCamera } from "@react-three/drei"
-import { Selection, Select, EffectComposer, Outline } from '@react-three/postprocessing'
-import { Noise } from '@react-three/postprocessing'
-import { BlendFunction } from 'postprocessing'
+import { useRef, useState, Suspense } from "react"
+import { Selection } from '@react-three/postprocessing'
 
 import CrtComputer from "./CrtComputer"
 import DeskClutter from "./DeskClutter"
@@ -78,7 +74,6 @@ export default function App() {
         isDragging = true
     });
 
-    
     document.addEventListener('mousemove', function(e) {
         if(isDragging)
         {
@@ -121,17 +116,17 @@ export default function App() {
 
     const [focus, setFocus] = useState(false)
 
-    ///////////////////////////////////////////////////////////
-
     const [hover, setHover] = useState(null)
 
-
-    ///////////////////////////////////////////////////////////
-
+    function Loader() {
+        const { active, progress, errors, item, loaded, total } = useProgress()
+        return <Html center>{progress} % loaded</Html>
+      }
 
     return (
         <> 
             <color args={ ['black'] } attach="background" />
+            <Suspense fallback={<Loader />}>
                 <Center>
                     <Selection>
                         <CrtComputer
@@ -180,14 +175,15 @@ export default function App() {
                         position={position}
                     />
                 </Center>
-            <Terminal />
-            <PerspectiveCamera
-                fov={focus ? 15 : 35}
-                zoom={!focus ? 1 : 2}
-                ref={cameraRef}
-                position={[0, -1, -1]} 
-                makeDefault 
-            />
+                <Terminal />
+                <PerspectiveCamera
+                    fov={focus ? 15 : 35}
+                    zoom={!focus ? 1 : 2}
+                    ref={cameraRef}
+                    position={[0, -1, -1]} 
+                    makeDefault 
+                />
+            </Suspense>
         </>
     )
 }
