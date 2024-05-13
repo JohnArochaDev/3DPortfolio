@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 root.render(
     <>
         <Canvas
-            gl={{ antialias: true }} // Enable anti-aliasing
+            gl={{ antialias: true }}
         >
             <App />
         </Canvas>

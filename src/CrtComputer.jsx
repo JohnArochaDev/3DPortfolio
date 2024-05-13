@@ -19,7 +19,7 @@ export default function CrtComputer({ position, nodes, texture, screen, clicked,
                 <mesh geometry={nodes.desktop.geometry} position={position} onClick={() => {setClicked(!clicked)}} onPointerOver={() => setHover(true)} onPointerOut={() => setHover(false)} >
                     <meshBasicMaterial map={texture} />
                 </mesh>
-                <mesh geometry={screen.nodes.crtScreen.geometry} position={position} onClick={() => {setClicked(!clicked)}} onPointerOver={() => setHover(true)} onPointerOut={() => setHover(false)} >
+                <mesh geometry={screen.nodes.crtScreen.geometry} position={position} onClick={() => {setClicked(!clicked)}} onPointerOver={() => setHover(false)} onPointerOut={() => setHover(true)} >
                     <meshBasicMaterial map={texture} />
                 </mesh>
                 <mesh geometry={stickyNote1.geometry} position={position} onClick={() => {setClicked(!clicked)}} onPointerOver={() => setHover(true)} onPointerOut={() => setHover(false)} >
