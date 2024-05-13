@@ -10,6 +10,7 @@ export default function LoadingScreen() {
     // item is the current item being loaded
     // loaded is the number of items loaded
     // total is the total number of items to be loaded, but it doesnt work, so the number as of now is 21 to be pitted against the 21 items in the scene
+    // add a loading bar with a percentage above the bar, beside the loading text
 
     return (
         <div className="loadingScreen">
