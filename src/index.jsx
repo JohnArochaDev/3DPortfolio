@@ -15,9 +15,9 @@ function Index() {
         <>
             <LoadingScreen />
             <Canvas gl={{ antialias: true }} >
-                <Suspense fallback={null}>
+                {/* <Suspense fallback={null}>
                     <App />
-                </Suspense>
+                </Suspense> */}
             </Canvas>
         </>
     )

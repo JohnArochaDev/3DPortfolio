@@ -17,9 +17,11 @@ export default function LoadingScreen() {
     // add a loading bar with a percentage above the bar, beside the loading text
 
     return (
-        <div className="loadingScreen">
-            <h1>Loading... ${percentage}%</h1>
-            <h1>${percentage}%</h1>
-        </div>
+        <>
+            <div className="loadingScreen"></div>
+            <h1>Loading... {percentage}%</h1>
+            <h2>Loading... {percentage}%</h2>
+            
+        </>
     )
 }
