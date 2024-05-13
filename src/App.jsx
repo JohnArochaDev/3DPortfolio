@@ -4,6 +4,8 @@ import { useRef } from "react"
 import { useState } from "react"
 import { PerspectiveCamera } from "@react-three/drei"
 import { Selection, Select, EffectComposer, Outline } from '@react-three/postprocessing'
+import { Noise } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
 
 import CrtComputer from "./CrtComputer"
 import DeskClutter from "./DeskClutter"
@@ -82,8 +84,8 @@ export default function App() {
         {
             const windowHalfX = window.innerWidth / 2
             const windowHalfY = window.innerHeight / 2
-            mouseX = ((e.clientX - windowHalfX) / 100) * .7
-            mouseY = ((e.clientY - windowHalfY) / 100) * .7
+            mouseX = ((e.clientX - windowHalfX) / 100) * .9
+            mouseY = ((e.clientY - windowHalfY) / 100) * .9
             if (mouseY > 1.2) {
                 mouseY = 1.2
             } else if (mouseY < 0.7) {
@@ -130,7 +132,6 @@ export default function App() {
     return (
         <> 
             <color args={ ['black'] } attach="background" />
-
                 <Center>
                     <Selection>
                         <CrtComputer
@@ -179,30 +180,14 @@ export default function App() {
                         position={position}
                     />
                 </Center>
-                <Terminal />
-
-                <PerspectiveCamera
+            <Terminal />
+            <PerspectiveCamera
                 fov={focus ? 15 : 35}
                 zoom={!focus ? 1 : 2}
                 ref={cameraRef}
                 position={[0, -1, -1]} 
                 makeDefault 
-                />
-
-                {/* <OrbitControls 
-                    // target={clicked ? cameraPosition : cameraCRTPosition}
-                    ref={cameraRef}
-                    target={[target[0], target[1], target[2]]}
-                    // minDistance={-5}
-                    maxDistance={.1}
-                    minPolarAngle={(Math.PI / 2) + -.135}
-                    maxPolarAngle={(Math.PI / 2) - .01}
-                    minAzimuthAngle={-Math.PI / 40}
-                    maxAzimuthAngle={Math.PI / 40}
-                    enablePan={false}
-                    rotateSpeed={.2}
-                    enableDamping 
-                    /> */}
+            />
         </>
     )
 }

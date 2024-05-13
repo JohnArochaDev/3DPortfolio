@@ -16,4 +16,5 @@ body,
     height: 820px;
     border: none;
     background: #000000;
+    user-select: none;
 }
