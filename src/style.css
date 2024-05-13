@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "terminal";
+    src: url('/fonts/terminal.ttf');
+    src: url('/fonts/terminal.ttf'),
+    url('/fonts/terminal.woff') format('woff'),
+  }
+
 html,
 body,
 #root
@@ -28,8 +35,10 @@ body,
     height: 100%;
     background: #000000;
     color: #FFFFFF;
-    font-family: monospace;
     font-size: 16px;
     text-align: center;
     line-height: 100vh;
+    font-family: 'terminal', monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
