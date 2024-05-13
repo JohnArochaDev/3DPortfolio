@@ -4,6 +4,10 @@ export default function LoadingScreen() {
 
     const { active, progress, errors, item, loaded, total } = useProgress()
 
+    const percentage = Math.trunc(loaded / 21 * 100)
+
+    console.log(percentage)
+
     // active is a boolean that indicates if the loader is active
     // progress is a number between 0 and 100
     // errors is an array of errors that occurred
@@ -14,7 +18,8 @@ export default function LoadingScreen() {
 
     return (
         <div className="loadingScreen">
-            <h1>Loading...</h1>
+            <h1>Loading... ${percentage}%</h1>
+            <h1>${percentage}%</h1>
         </div>
     )
 }
