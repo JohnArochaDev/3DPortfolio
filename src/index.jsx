@@ -5,6 +5,7 @@ import { Loader, useProgress } from '@react-three/drei'
 import { Suspense } from 'react'
 
 import App from './Components/App'
+import LoadingScreen from './Components/LoadingScreen'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
@@ -22,6 +23,7 @@ function Index() {
 
     return (
         <>
+            <LoadingScreen />
             <Canvas gl={{ antialias: true }} >
                 <Suspense fallback={null}>
                     <App />
