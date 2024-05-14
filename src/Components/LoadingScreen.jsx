@@ -6,9 +6,6 @@ export default function LoadingScreen() {
 
     const percentage = Math.trunc(loaded / 27 * 100)
 
-    console.log(percentage)
-    console.log(total)
-
     const loadingBar = percentage * .9
 
     return (

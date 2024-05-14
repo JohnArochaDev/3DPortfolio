@@ -1,4 +1,4 @@
-import { PerspectiveCamera, Center, useProgress, useGLTF, useTexture} from "@react-three/drei"
+import { PerspectiveCamera, Center, useProgress, useGLTF, useTexture, OrbitControls} from "@react-three/drei"
 import { useFrame } from '@react-three/fiber'
 import { useRef, useState } from "react"
 import { Selection } from '@react-three/postprocessing'
@@ -9,8 +9,10 @@ import ComputerHardware from "./ComputerHardware"
 import MiscItems from "./MiscItems"
 import Terminal from "./Terminal";
 import Extras from "./Extras";
+import Helper from "./Helper";
 
 export default function App() {
+
 
     const textureBake1 = useTexture('/textures/textureBake1.jpg')
     textureBake1.flipY = false
@@ -187,6 +189,7 @@ export default function App() {
                     keyboardTexture={keyboardTexture}
                     position={position}
                 />
+                <Helper />
             </Center>
             <Terminal />
             <PerspectiveCamera
@@ -196,6 +199,8 @@ export default function App() {
                 position={[0, -1, -1]} 
                 makeDefault 
             />
+            {/* <OrbitControls /> */}
+
         </>
     )
 }
