@@ -18,10 +18,10 @@ export default function LoadingScreen() {
 
     return (
         <>
-            <div className="loadingScreen"></div>
-            <h1>Loading... {percentage}%</h1>
-            <h2>Loading... {percentage}%</h2>
-            
+            <div className="loadingScreen">
+                <h1>Loading... {percentage}%</h1>
+                <h2>pls work</h2>
+            </div>
         </>
     )
 }
