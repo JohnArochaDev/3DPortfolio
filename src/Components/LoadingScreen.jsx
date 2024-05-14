@@ -23,6 +23,7 @@ export default function LoadingScreen() {
             <div className="loadingScreen">
                 <h1>Loading... {percentage}%</h1>
                 <div className="loadingBar" style={{ width: `${loadingBar}%` }} />
+                <div className="loadingBarIndent" />
             </div>
         </>
     )
