@@ -11,7 +11,14 @@ import Terminal from "./Terminal";
 import Extras from "./Extras";
 import Helper from "./Helper";
 
-export default function App() {
+export default function App({ remove, setRemove}) {
+
+    function removeBG() {
+        setTimeout(() => {
+            setRemove(true)
+        }, 10000)
+    }
+    removeBG()
 
 
     const textureBake1 = useTexture('/textures/textureBake1.jpg')

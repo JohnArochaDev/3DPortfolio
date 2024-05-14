@@ -1,6 +1,6 @@
 import { useProgress } from '@react-three/drei'
 
-export default function LoadingScreen() {
+export default function LoadingScreen({ remove, setRemove}) {
 
     const { active, progress, errors, item, loaded, total } = useProgress()
 
@@ -8,8 +8,11 @@ export default function LoadingScreen() {
 
     const loadingBar = percentage * .9
 
+    console.log(remove)
+
     return (
         <>
+        {remove ? (null) : (
             <div className="loadingScreen">
                 <h1>Loading... {percentage}%</h1>
                 <div className="loadingBar" style={{ width: `${loadingBar}%` }} />
@@ -17,6 +20,7 @@ export default function LoadingScreen() {
                 <div className="pfp"><img src="/photos/pfp.jpg" alt="" /></div>
                 <p className="name">(Click on the screen to type in the terminal)</p>
             </div>
+        )}
         </>
     )
 }
