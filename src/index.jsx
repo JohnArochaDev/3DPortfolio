@@ -16,7 +16,6 @@ function Index() {
 
     return (
         <>
-        {loaded ? <Startup loaded={loaded} setLoaded={setLoaded}  /> : null}
             <LoadingScreen/>
             <Canvas gl={{ antialias: true }} >
                 <Suspense fallback={null}>
