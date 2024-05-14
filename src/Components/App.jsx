@@ -1,6 +1,6 @@
-import { PerspectiveCamera, Center, useProgress, useGLTF, useTexture, Loader} from "@react-three/drei"
-import { useFrame, useThree } from '@react-three/fiber'
-import { useRef, useState, Suspense } from "react"
+import { PerspectiveCamera, Center, useProgress, useGLTF, useTexture} from "@react-three/drei"
+import { useFrame } from '@react-three/fiber'
+import { useRef, useState } from "react"
 import { Selection } from '@react-three/postprocessing'
 
 import CrtComputer from "./CrtComputer"
@@ -57,9 +57,6 @@ export default function App() {
     const stickyNote3 = stickyNotes.nodes.stickyNote3
     const screen = useGLTF('./officeScene/screen.glb')
     const keyBoard = useGLTF('./officeScene/keyboardUV.glb')
-
-    const cameraPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.77, nodes.crtScreen.position.z - 2.2]
-    const cameraCRTPosition = [nodes.crtScreen.position.x, nodes.crtScreen.position.y - 2.61, nodes.crtScreen.position.z - 2.77]
 
     const position = [0, 0, 0]
 
@@ -126,64 +123,62 @@ export default function App() {
     return (
         <> 
             <color args={ ['black'] } attach="background" />
-            <Suspense fallback={<Loader />}>
-                <Center>
-                    <Selection>
-                        <CrtComputer
-                            nodes={nodes}
-                            stickyNote1={stickyNote1}
-                            stickyNote2={stickyNote2}
-                            stickyNote3={stickyNote3}
-                            stickyNoteBake={stickyNoteBake}
-                            stickyNoteBake2={stickyNoteBake2}
-                            stickyNoteBake3={stickyNoteBake3}
-                            texture={textureBake1}
-                            screen={screen}
-                            position={position}
-                            clicked={focus}
-                            setClicked={setFocus}
-                            hover={hover}
-                            setHover={setHover}
-                        />
-                    </Selection>
-                    <DeskClutter
+            <Center>
+                <Selection>
+                    <CrtComputer
                         nodes={nodes}
-                        texture={textureBake2}
-                        position={position}
-                    />
-                    <ComputerHardware 
-                        nodes={nodes}
-                        texture={textureBake3}
-                        position={position}
-                    />
-                    <MiscItems 
-                        nodes={nodes}
-                        keyboard={keyBoard}
                         stickyNote1={stickyNote1}
                         stickyNote2={stickyNote2}
                         stickyNote3={stickyNote3}
-                        textureBake4={textureBake4}
-                        coffeeMugBake={coffeeMugBake}
-                        deskBake={deskBake}
-                        mouseBake={mouseBake}
-                        posterBake={posterBake}
-                        wallBake={wallBake}
                         stickyNoteBake={stickyNoteBake}
                         stickyNoteBake2={stickyNoteBake2}
                         stickyNoteBake3={stickyNoteBake3}
-                        keyboardTexture={keyboardTexture}
+                        texture={textureBake1}
+                        screen={screen}
                         position={position}
+                        clicked={focus}
+                        setClicked={setFocus}
+                        hover={hover}
+                        setHover={setHover}
                     />
-                </Center>
-                <Terminal />
-                <PerspectiveCamera
-                    fov={focus ? 15 : 35}
-                    zoom={!focus ? 1 : 2}
-                    ref={cameraRef}
-                    position={[0, -1, -1]} 
-                    makeDefault 
+                </Selection>
+                <DeskClutter
+                    nodes={nodes}
+                    texture={textureBake2}
+                    position={position}
                 />
-            </Suspense>
+                <ComputerHardware 
+                    nodes={nodes}
+                    texture={textureBake3}
+                    position={position}
+                />
+                <MiscItems 
+                    nodes={nodes}
+                    keyboard={keyBoard}
+                    stickyNote1={stickyNote1}
+                    stickyNote2={stickyNote2}
+                    stickyNote3={stickyNote3}
+                    textureBake4={textureBake4}
+                    coffeeMugBake={coffeeMugBake}
+                    deskBake={deskBake}
+                    mouseBake={mouseBake}
+                    posterBake={posterBake}
+                    wallBake={wallBake}
+                    stickyNoteBake={stickyNoteBake}
+                    stickyNoteBake2={stickyNoteBake2}
+                    stickyNoteBake3={stickyNoteBake3}
+                    keyboardTexture={keyboardTexture}
+                    position={position}
+                />
+            </Center>
+            <Terminal />
+            <PerspectiveCamera
+                fov={focus ? 15 : 35}
+                zoom={!focus ? 1 : 2}
+                ref={cameraRef}
+                position={[0, -1, -1]} 
+                makeDefault 
+            />
         </>
     )
 }
