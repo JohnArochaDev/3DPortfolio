@@ -1,6 +1,7 @@
 export default function MiscItems({ position, nodes, textureBake4, coffeeMugBake, deskBake, mouseBake, posterBake, wallBake, keyboard, keyboardTexture}) {
 
-    return (<>
+    return (
+        <>
             <mesh geometry={nodes.Bulletin_Board001.geometry} position={position} >
                 <meshBasicMaterial map={textureBake4} />
             </mesh>

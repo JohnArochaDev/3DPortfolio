@@ -3,7 +3,7 @@ import { Selection, Select, EffectComposer, Outline } from '@react-three/postpro
 
 export default function CrtComputer({ position, nodes, texture, screen, clicked, setClicked, hover, setHover, stickyNote1, stickyNote2, stickyNote3, stickyNoteBake, stickyNoteBake2, stickyNoteBake3}) {
 
-    function Box(props) {
+    function Computer(props) {
         
         return (
             <Select enabled={hover}>
@@ -40,7 +40,7 @@ export default function CrtComputer({ position, nodes, texture, screen, clicked,
                 <EffectComposer multisampling={8} autoClear={false}>
                     <Outline blur visibleEdgeColor="#0D2527" edgeStrength={500} width={5000}  />
                 </EffectComposer>
-                <Box />
+                <Computer />
             </Selection>
         </>
     )

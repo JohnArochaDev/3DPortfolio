@@ -8,14 +8,6 @@ export default function LoadingScreen() {
 
     console.log(percentage)
 
-    // active is a boolean that indicates if the loader is active
-    // progress is a number between 0 and 100
-    // errors is an array of errors that occurred
-    // item is the current item being loaded
-    // loaded is the number of items loaded
-    // total is the total number of items to be loaded, but it doesnt work, so the number as of now is 21 to be pitted against the 21 items in the scene
-    // add a loading bar with a percentage above the bar, beside the loading text
-
     const loadingBar = percentage * .9
 
     return (

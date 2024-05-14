@@ -1,8 +1,7 @@
-import { Center } from "@react-three/drei"
-
 export default function ComputerHardware({ position, nodes, texture }) {
 
-    return (<>
+    return (
+        <>
             <mesh geometry={nodes.leftSpeaker.geometry } position={position}  >
                 <meshBasicMaterial map={texture} />
             </mesh>
@@ -12,9 +11,6 @@ export default function ComputerHardware({ position, nodes, texture }) {
             <mesh geometry={nodes.coaster.geometry} position={position}  >
                 <meshBasicMaterial map={texture} />
             </mesh>
-            {/* <mesh geometry={nodes.keyBoard.geometry} >
-                <meshBasicMaterial map={texture} />
-            </mesh> */}
             <mesh geometry={nodes.lamp.geometry} position={position}  >
                 <meshBasicMaterial map={texture} />
             </mesh>

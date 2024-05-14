@@ -1,6 +1,7 @@
 export default function DeskClutter({ position, nodes, texture }) {
 
-    return (<>
+    return (
+        <>
             <mesh geometry={nodes.mouseWire.geometry} position={position} >
                 <meshBasicMaterial map={texture} />
             </mesh>
@@ -34,6 +35,6 @@ export default function DeskClutter({ position, nodes, texture }) {
             <mesh geometry={nodes.bookCover006.geometry} position={position} >
                 <meshBasicMaterial map={texture} />
             </mesh>
-    </>
+        </>
     )
 }
