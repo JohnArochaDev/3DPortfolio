@@ -4,9 +4,10 @@ export default function LoadingScreen() {
 
     const { active, progress, errors, item, loaded, total } = useProgress()
 
-    const percentage = Math.trunc(loaded / 21 * 100)
+    const percentage = Math.trunc(loaded / 27 * 100)
 
     console.log(percentage)
+    console.log(total)
 
     const loadingBar = percentage * .9
 
