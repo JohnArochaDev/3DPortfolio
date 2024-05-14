@@ -24,6 +24,8 @@ export default function LoadingScreen() {
                 <h1>Loading... {percentage}%</h1>
                 <div className="loadingBar" style={{ width: `${loadingBar}%` }} />
                 <div className="loadingBarIndent" />
+                <div className="pfp"><img src="/photos/pfp.jpg" alt="" /></div>
+                <p className="name">(Click on the screen to type in the terminal)</p>
             </div>
         </>
     )
