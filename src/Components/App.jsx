@@ -8,6 +8,7 @@ import DeskClutter from "./DeskClutter"
 import ComputerHardware from "./ComputerHardware"
 import MiscItems from "./MiscItems"
 import Terminal from "./Terminal";
+import Extras from "./Extras";
 
 export default function App() {
 
@@ -50,6 +51,12 @@ export default function App() {
     const keyboardTexture = useTexture('/textures/keyboardBake.jpg')
     keyboardTexture.flipY = false
 
+    const speakerCoordBake = useTexture('/textures/speakerCoordBake.jpg')
+    speakerCoordBake.flipY = false
+
+    const pageBake = useTexture('/textures/pagesBake.jpg')
+    speakerCoordBake.flipY = false
+
     const { nodes } = useGLTF('./officeScene/retroDesk.glb')
     const stickyNotes = useGLTF('./officeScene/stickyNotes.glb')
     const stickyNote1 = stickyNotes.nodes.stickyNote1
@@ -57,6 +64,9 @@ export default function App() {
     const stickyNote3 = stickyNotes.nodes.stickyNote3
     const screen = useGLTF('./officeScene/screen.glb')
     const keyBoard = useGLTF('./officeScene/keyboardUV.glb')
+    const speakerCoord = useGLTF('./officeScene/speakerCoord.glb')
+    const pages = useGLTF('./officeScene/miscPage.glb')
+
 
     const position = [0, 0, 0]
 
@@ -142,6 +152,13 @@ export default function App() {
                         setHover={setHover}
                     />
                 </Selection>
+                <Extras 
+                    position={position}
+                    speakerCoord={speakerCoord}
+                    speakerCoordBake={speakerCoordBake}
+                    pages={pages}
+                    pageBake={pageBake}
+                />
                 <DeskClutter
                     nodes={nodes}
                     texture={textureBake2}
