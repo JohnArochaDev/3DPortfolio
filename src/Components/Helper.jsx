@@ -15,10 +15,10 @@ export default function Helper() {
                 fontSize: '20px',
                 marginTop: '10px',
                 color: '#000000,',
-                backgroundColor: '#18ff88',
+                backgroundColor: '#469288',
                 width: '20vw',
                 borderRadius: '10px',
-                border: '2px solid #0b8647',
+                border: '2px solid #0D2527',
                 userSelect: 'none',
             }}
         >
