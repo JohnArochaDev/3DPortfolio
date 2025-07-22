@@ -14,7 +14,10 @@ export default function Terminal() {
                 distanceFactor={ .152 }
                 position={[0, -1, -2.465]}
             >
-                <iframe src="https://johnarocha.netlify.app/" />
+                <iframe 
+                    src="https://johnarocha.netlify.app/"
+                    allowFullScreen
+                />
             </Html>
     )
 }
